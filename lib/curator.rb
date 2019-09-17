@@ -36,7 +36,12 @@ class Curator
   end
 
   def artists_with_multiple_photographs
-
+    @artists.find_all do |artist|
+      photos = @photographs.find_all do |photo|
+          photo.artist_id == artist.id
+      end
+      photos.count >= 2
+    end
   end
 
   def photographs_taken_by_artist_from(country)
