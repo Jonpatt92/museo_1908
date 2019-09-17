@@ -61,10 +61,11 @@ class CuratorTest < Minitest::Test
     @curator.add_artist(@artist_2)
     @curator.add_artist(@artist_3)
 
-    assert_equal [@photo_3, @photo_4], find_photographs_by_artist(@artist_3)
+    assert_equal [@photo_3, @photo_4], @curator.find_photographs_by_artist(@artist_3)
   end
 
   def test_artists_with_multiple_photographs
+    skip
     @curator.add_photograph(@photo_1)
     @curator.add_photograph(@photo_2)
     @curator.add_photograph(@photo_3)
@@ -77,6 +78,7 @@ class CuratorTest < Minitest::Test
   end
 
   def test_photographs_taken_by_artist_from
+    skip
     @curator.add_photograph(@photo_1)
     @curator.add_photograph(@photo_2)
     @curator.add_photograph(@photo_3)
