@@ -14,15 +14,15 @@ class Curator
   def load_photos(file)
     loaded_photos =  []
     photos = []
-    binding.pry
     photos =  FileIO.load_photographs(file)
 
     photos.each do |photo|
-      loaded_photos << (photo.id = Photograph.new(photo))
-      binding.pry
+    loaded_photos << Photograph.new(photo)
     end
     loaded_photos.each do |photo|
       @photographs << photo
+      # loaded_photos.index(photo) = photo
+      # @photographs << photo.index
     end
   end
 

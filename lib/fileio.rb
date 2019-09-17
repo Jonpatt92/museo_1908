@@ -19,7 +19,6 @@ class FileIO
   end
 
   def self.load_photographs(file)
-    binding.pry
     photographs = []
     contents = CSV.open file, headers: true, header_converters: :symbol
     contents.each do |row|

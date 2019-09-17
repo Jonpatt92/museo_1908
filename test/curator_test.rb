@@ -95,9 +95,9 @@ class CuratorTest < Minitest::Test
   def test_load_photographs
     assert_equal [], @curator.photographs
 
-    @curator.load_photos('photographs.csv')
+    @curator.load_photos('./data/photographs.csv')
 
-    assert_equal ['1','2','3','4'], @curator.photographs
+    assert_equal [Photograph, Photograph, Photograph, Photograph], @curator.photographs
   end
 
 end
