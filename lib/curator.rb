@@ -1,5 +1,6 @@
 require './lib/photograph'
 require './lib/artist'
+require './lib/fileio'
 require 'pry'
 
 class Curator
@@ -8,6 +9,21 @@ class Curator
   def initialize
     @artists = []
     @photographs = []
+  end
+
+  def load_photos(file)
+    loaded_photos =  []
+    photos = []
+    binding.pry
+    photos =  FileIO.load_photographs(file)
+
+    photos.each do |photo|
+      loaded_photos << (photo.id = Photograph.new(photo))
+      binding.pry
+    end
+    loaded_photos.each do |photo|
+      @photographs << photo
+    end
   end
 
   def add_photograph(photo)

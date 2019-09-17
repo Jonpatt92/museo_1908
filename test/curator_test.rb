@@ -3,6 +3,9 @@ require 'minitest/pride'
 require './lib/photograph'
 require './lib/artist'
 require './lib/curator'
+require './lib/fileio'
+require 'csv'
+require 'pry'
 
 class CuratorTest < Minitest::Test
 
@@ -87,6 +90,14 @@ class CuratorTest < Minitest::Test
 
     assert_equal [@photo_2, @photo_3, @photo_4], @curator.photographs_taken_by_artist_from("United States")
     assert_equal [], @curator.photographs_taken_by_artist_from("Argentina")
+  end
+
+  def test_load_photographs
+    assert_equal [], @curator.photographs
+
+    @curator.load_photos('photographs.csv')
+
+    assert_equal ['1','2','3','4'], @curator.photographs
   end
 
 end
